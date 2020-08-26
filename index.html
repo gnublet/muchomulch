@@ -33,6 +33,7 @@
                 });
             calendar.render();
             $("#calendar").hide()
+            $("#marketplace").hide()
         });
 
         $("#calendar").hide()
@@ -74,7 +75,7 @@
           <li class="tab" id="list">
             <a>
               <span class="icon is-small"><i class="fas fa-table" aria-hidden="true"></i></span>
-              <span>List</span>
+              <span>Marketplace</span>
             </a>
           </li>
           <!-- <li>
@@ -118,7 +119,7 @@
                         .bindPopup("<b>Wellhead</b><br />Chipping day this Saturday at 9 am!").openPopup();
 
                     L.marker([32.25, -110.96]).addTo(mymap)
-                        .bindPopup("<b>Wellhead</b><br />Chipping day this Saturday at 9 am!").openPopup();
+                        .bindPopup("<b>Wellhead</b><br />Mulch Class this Saturday at 11 am!").openPopup();
 
                     L.marker([32.255, -110.955], {icon: greenIcon}).addTo(mymap)
                         .bindPopup("<b>Wellhead</b><br />Chipping day this Saturday at 9 am!").openPopup();
@@ -153,8 +154,128 @@
 
 
 
+<!-- marketplace -->
+<div id='marketplace'>
+
+        <div class="field">
+            <div class="control">
+                <div class="select is-primary">
+                <select>
+                    <option>Filter by Type</option>
+                    <option>Brush</option>
+                    <option>Equipment</option>
+                    <option>Transportation</option>
+                    <option>Storage</option>
+                    <option>Mulch</option>
+                </select>
+                </div>
+            </div>
+            </div>
+            <div class="field">
+            <div class="control">
+                <div class="select is-info">
+                <select>
+                    <option>Filter by Location</option>
+                    <option>85711</option>
+                    <option>85712</option>
+                </select>
+                </div>
+            </div>
+            </div>
 
 
+
+    <h1>Offers</h1>
+    <table class="table">
+        <thead>
+            <tr>
+            <th><abbr title="Offer">Offer</abbr></th>
+            <th><abbr title="Name/Organization">Name</abbr></th>
+            <th><abbr title="Type">Type</abbr></th>
+            <th><abbr title="Asking Price">Ask</abbr></th>
+            <th><abbr title="Expires">Expires</abbr></th>
+            <th><abbr title="Location">University of Arizona</abbr></th>
+            <th><abbr title="Contact">Contact</abbr></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th>5 trash bags of brush (branches and leaves)</th>
+            <td>Isaac Newton</td>
+            <td>Brush</td>
+            <td>Free</td>
+            <td>10/1/2020</td>
+            <td>Glenn and Country Club Road</td>
+            <td>kevin@usanpn.org</td>
+            </tr>
+            <tr>
+            <th>Chipper Rental</th>
+            <td>Marie Curie</td>
+            <td>Chipper rental</td>
+            <td>$10/day</td>
+            <td>Never</td>
+            <td>Speedway and Campbell</td>
+            <td>hello@tucson.org</td>
+            </tr>
+        
+        </tbody>
+    </table>
+
+    <h1>Asks</h1>
+    <table class="table">
+        <thead>
+            <tr>
+            <th><abbr title="Ask">Ask</abbr></th>
+            <th><abbr title="Name/Organization">Name</abbr></th>
+            <th><abbr title="Type">Type</abbr></th>
+            <th><abbr title="Max Price">Max Price</abbr></th>
+            <th><abbr title="Expires">Expires</abbr></th>
+            <th><abbr title="Contact">Contact</abbr></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th>3 trash bags of brush (branches and leaves)</th>
+            <td>John Doe</td>
+            <td>Mulch</td>
+            <td>Free</td>
+            <td>10/1/2020</td>
+            <td>johndoe@example.org</td>
+            </tr>
+            <tr>
+            <th>Chipper Rental</th>
+            <td>Jane Doe</td>
+            <td>Chipper rental</td>
+            <td>$10/day</td>
+            <td>9/1/2020</td>
+            <td>janedoe@tucson.org</td>
+            </tr>
+        
+        </tbody>
+    </table>
+</div>
+
+<div id="resources">
+    <h1>Resources</h1>
+    <ul>
+        <li><a href="http://www.desertharvesters.org/">Desert Harvesters</a></li>
+        <li><a href="https://www.tucsonaz.gov/environmental-services">City of Tucson - Environmental Services</a></li>
+        <li><a href="https://watershedmg.org/">Watershed Management Group</a></li>
+
+        <li><a href="https://watershedmg.org/">Tanks Green</a></li>
+        <li><a href="https://watershedmg.org/">Compost Cats</a></li>
+        <li><a href="https://getchipdrom.com">GetChipDrop</a></li>
+        <li>
+            <a>Seeds</a>
+            <ul>
+                <li><a href="https://www.library.pima.gov/seed-library/">Pima Seed Library</a></li>
+                <li><a href="https://www.nativeseeds.org">Native Seed Search</a></li>
+            </ul>
+            
+            
+    </ul>
+
+</div>
 
         
 </body>
@@ -175,9 +296,15 @@
             if ($(this).attr("id") == "map") {
                 $("#mapid").show()
                 $("#calendar").hide()
+                $('#marketplace').hide()
             } else if($(this).attr("id") == "cal") {
                 $("#mapid").hide()
                 $("#calendar").show()
+                $("#marketplace").hide()
+            } else if ($(this).attr("id") == 'list') {
+                $("#marketplace").show()
+                $("#calendar").hide()
+                $("#mapid").hide()
             }
         });
 
